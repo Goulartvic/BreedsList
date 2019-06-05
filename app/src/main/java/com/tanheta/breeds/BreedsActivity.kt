@@ -8,10 +8,17 @@ class BreedsActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        setContentView(R.layout.breeds_activity)
+
+        addFragmentTo(R.id.content_frame, createFragment())
     }
 
     fun createViewModel(): BreedsViewModel {
         return BreedsViewModel()
+    }
+
+    fun createFragment(): BreedsFragment {
+        return BreedsFragment.newInstance(createViewModel())
     }
 
 }
